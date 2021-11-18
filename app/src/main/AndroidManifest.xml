@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.uas.agenda">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Agenda">
+        <activity
+            android:name=".activities.ConfirmationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_status"/>
+        <activity
+            android:name=".activities.InfoStatusActivity"
+            android:exported="false"
+            android:label="@string/title_activity_status"/>
+        <activity
+            android:name=".activities.InfoDateActivity"
+            android:exported="false"
+            android:label="@string/title_activity_dates"/>
+        <activity
+            android:name=".activities.MenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.Agenda.NoActionBar" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

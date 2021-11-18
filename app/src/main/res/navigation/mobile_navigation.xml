@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_dates">
+
+    <fragment
+        android:id="@+id/nav_dates"
+        android:name="com.uas.agenda.main.ui.dates.DatesFragment"
+        android:label="@string/menu_dates"
+        tools:layout="@layout/fragment_dates" />
+
+    <fragment
+        android:id="@+id/nav_status"
+        android:name="com.uas.agenda.main.ui.status.StatusFragment"
+        android:label="@string/menu_status"
+        tools:layout="@layout/fragment_status" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.uas.agenda.main.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_slideshow" />
+</navigation>
