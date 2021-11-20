@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dates"
+        android:icon="@drawable/ic_mobile_active_my_dates_icon"
+        android:title="@string/menu_dates"/>
+    <item
+        android:id="@+id/nav_status"
+        android:icon="@drawable/ic_mobile_active_status_icon"
+        android:title="@string/menu_status" />
+
+</menu>
