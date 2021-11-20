@@ -1,5 +1,6 @@
 package com.uas.agenda.activities
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -35,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.userEditText.text.isEmpty() || binding.passwordEditText.text.isEmpty() || binding.isCodeEditText.text.isEmpty()){
 
-                showAlert("Error", "No deje espacios en blanco.")
+                showAlert("Error", "No deje espacios en blanco.", 1)
 
             } else {
 
@@ -79,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.println(Log.ERROR, "tagSignIn", t.toString())
                 // Crear ventana emergente mostrando el error y poner opción, por ejemplo reintentar el inicio de sesión
-                signIn()
+                showAlert("Error del Servidor", "Tipo de error: $t. ¿Desea reintentar el inicio de sesión?", 2)
 
             }
 
@@ -95,11 +96,21 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun showAlert(title: String, message: String) {
+    private fun showAlert(title: String, message: String, type: Number) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
         builder.setMessage(message)
-        builder.setPositiveButton("Aceptar", null)
+
+        when (type) {
+            1 -> {
+                builder.setPositiveButton("Aceptar", null)
+            }
+            2->{
+                builder.setPositiveButton("Aceptar") { dialog, which -> signIn()}
+                builder.setNegativeButton("Rechazar") { dialog, which -> dialog.cancel() }
+            }
+        }
+
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
