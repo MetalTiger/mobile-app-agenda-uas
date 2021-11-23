@@ -1,12 +1,11 @@
 package com.uas.agenda.activities
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.uas.agenda.R
 import com.uas.agenda.api.model.Datos
 import com.uas.agenda.api.model.LoginData
 import com.uas.agenda.api.model.LoginResponse
@@ -16,6 +15,11 @@ import com.uas.agenda.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+enum class AlertType {
+    ACCEPT,
+    ACCEPT_DECLINE
+}
 
 class LoginActivity : AppCompatActivity() {
 
@@ -36,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.userEditText.text.isEmpty() || binding.passwordEditText.text.isEmpty() || binding.isCodeEditText.text.isEmpty()){
 
-                showAlert("Error", "No deje espacios en blanco.", 1)
+                showAlert("Error", "No deje campos en blanco.", AlertType.ACCEPT)
 
             } else {
 
@@ -69,7 +73,9 @@ class LoginActivity : AppCompatActivity() {
 
 
                     } else {
-                        Toast.makeText(this@LoginActivity, head.message, Toast.LENGTH_LONG).show()
+                        showAlert("Error", head.message, AlertType.ACCEPT)
+
+                        //Toast.makeText(this@LoginActivity, head.message, Toast.LENGTH_LONG).show()
                         Log.println(Log.ERROR, "tagSignIn", head.message)
                     }
 
@@ -78,9 +84,9 @@ class LoginActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.println(Log.ERROR, "tagSignIn", t.toString())
+                Log.println(Log.ERROR, "tagSignIn", t.message.toString())
                 // Crear ventana emergente mostrando el error y poner opción, por ejemplo reintentar el inicio de sesión
-                showAlert("Error del Servidor", "Tipo de error: $t. ¿Desea reintentar el inicio de sesión?", 2)
+                showAlert("Error del Servidor", "Tipo de error: $t. ¿Desea reintentar el inicio de sesión?", AlertType.ACCEPT_DECLINE)
 
             }
 
@@ -96,18 +102,18 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun showAlert(title: String, message: String, type: Number) {
+    private fun showAlert(title: String, message: String, type: AlertType) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)
         builder.setMessage(message)
 
         when (type) {
-            1 -> {
-                builder.setPositiveButton("Aceptar", null)
+            AlertType.ACCEPT -> {
+                builder.setPositiveButton(getString(R.string.Alert_btnAccept), null)
             }
-            2->{
-                builder.setPositiveButton("Aceptar") { dialog, which -> signIn()}
-                builder.setNegativeButton("Rechazar") { dialog, which -> dialog.cancel() }
+            AlertType.ACCEPT_DECLINE -> {
+                builder.setPositiveButton(R.string.Alert_btnAccept) { _, _ -> signIn()}
+                builder.setNegativeButton(getString(R.string.Alert_btnDecline)) { dialog, which -> dialog.cancel() }
             }
         }
 
