@@ -26,5 +26,11 @@
     <style name="TimePicker" parent="ThemeOverlay.MaterialComponents.TimePicker">
         <item name="android:colorAccent">@color/colorPrimary</item>
     </style>
+    
+    <style name="error_appearance" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        
+    </style>
 
 </resources>

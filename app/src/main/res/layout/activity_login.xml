@@ -24,6 +24,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:errorEnabled="true"
+        app:errorTextAppearance="@style/error_appearance"
+        app:errorTextColor="#DF0707"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -52,7 +54,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilUser"
         app:errorEnabled="true"
-
+        app:errorTextAppearance="@style/error_appearance"
+        app:errorTextColor="#DF0707"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -83,6 +86,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword"
         app:errorEnabled="true"
+        app:errorTextAppearance="@style/error_appearance"
+        app:errorTextColor="#DF0707"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -110,8 +115,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilISCode"
+        app:layout_constraintVertical_bias="0.35"
         tools:ignore="SpeakableTextPresentCheck"
-        app:layout_constraintVertical_bias="0.35"/>
+        android:contentDescription="@string/loginBtn_description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
