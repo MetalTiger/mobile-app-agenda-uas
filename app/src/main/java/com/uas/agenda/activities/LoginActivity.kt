@@ -38,18 +38,62 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginButton.setOnClickListener{
 
-            if (binding.userEditText.text.isEmpty() || binding.passwordEditText.text.isEmpty() || binding.isCodeEditText.text.isEmpty()){
+            val user = validateUser(binding.userEditText.text.toString())
+            val pass = validatePassword(binding.passwordEditText.text.toString())
+            val code = validateISCode(binding.isCodeEditText.text.toString())
 
-                showAlert("Error", "No deje campos en blanco.", AlertType.ACCEPT)
-
-            } else {
-
+            if (user && pass && code){
                 signIn()
-
             }
 
         }
     }
+
+    private fun validateISCode(code: String): Boolean {
+
+        if (code.isBlank()){
+
+            binding.tilISCode.error = "No deje el campo en blanco"
+
+            return false
+        } else {
+            binding.tilISCode.error = null
+
+            return true
+        }
+
+    }
+
+    private fun validatePassword(password: String): Boolean {
+
+        if (password.isBlank()){
+
+            binding.tilPassword.error = "No deje el campo en blanco"
+
+            return false
+        } else {
+            binding.tilPassword.error = null
+
+            return true
+        }
+
+    }
+
+    private fun validateUser(user: String): Boolean {
+
+        if (user.isBlank()){
+
+            binding.tilUser.error = "No deje el campo en blanco"
+
+            return false
+        } else {
+            binding.tilUser.error = null
+
+            return true
+        }
+
+    }
+
 
     private fun signIn(){
 
@@ -86,7 +130,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.println(Log.ERROR, "tagSignIn", t.message.toString())
                 // Crear ventana emergente mostrando el error y poner opción, por ejemplo reintentar el inicio de sesión
-                showAlert("Error del Servidor", "Tipo de error: $t. ¿Desea reintentar el inicio de sesión?", AlertType.ACCEPT_DECLINE)
+                showAlert("Error del Servidor", "Tipo de error: ${t.message}. ¿Desea reintentar el inicio de sesión?", AlertType.ACCEPT_DECLINE)
 
             }
 
