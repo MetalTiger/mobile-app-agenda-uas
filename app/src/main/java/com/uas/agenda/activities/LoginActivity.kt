@@ -3,6 +3,8 @@ package com.uas.agenda.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.uas.agenda.R
@@ -47,6 +49,19 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+
+        binding.userEditText.setOnClickListener {
+            binding.tilUser.error = null
+        }
+
+        binding.passwordEditText.setOnClickListener {
+            binding.tilPassword.error = null
+        }
+
+        binding.isCodeEditText.setOnClickListener {
+            binding.tilISCode.error = null
+        }
+
     }
 
     private fun validateISCode(code: String): Boolean {
