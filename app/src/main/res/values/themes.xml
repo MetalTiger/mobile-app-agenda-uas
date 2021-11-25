@@ -33,4 +33,56 @@
         
     </style>
 
+    <style name="EditTextLogin" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:minHeight">66dp</item>
+        <item name="android:background">@drawable/rounded_edittext</item>
+
+    </style>
+
+    <style name="tilLogin" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorTextAppearance">@style/error_appearance</item>
+        <item name="errorTextColor">@color/white</item>
+
+    </style>
+    
+    <style name="tilPassword" parent="tilLogin">
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/colorPrimary</item>
+        
+    </style>
+
+    <style name="TextViewInfoDatos" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Separador" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/black</item>
+
+    </style>
+
+    <style name="TextViewMuestra" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginStart">60dp</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
+    <style name="TextViewDatos" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">60dp</item>
+        <item name="android:textSize">18sp</item>
+
+    </style>
+
 </resources>

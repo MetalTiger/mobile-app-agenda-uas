@@ -38,6 +38,8 @@ class ConfirmationActivity : AppCompatActivity() {
                 if (datos != null) {
                     val id = datos.getString("id")
 
+                    // Horario de 9 - 3
+
                     val info = AcceptData(id, binding.editTextTime.text.toString())
 
                     val call = ServiceBuilder.buildService(APIService::class.java).acceptDate(info)

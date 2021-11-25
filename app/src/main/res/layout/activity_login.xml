@@ -12,61 +12,49 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/tilLogin"
         android:layout_marginStart="50dp"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="50dp"
-        android:minHeight="48dp"
-        android:hint="@string/login_user"
-        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:errorEnabled="true"
-        app:errorTextAppearance="@style/error_appearance"
-        app:errorTextColor="@color/white"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/userEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/EditTextLogin"
+            android:hint="@string/login_user"
             android:autofillHints="emailAddress"
-            android:background="@drawable/rounded_edittext"
             android:inputType="textEmailAddress"
-            android:textSize="22sp"
             tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
+        style="@style/tilPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginTop="40dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilUser"
-        app:errorEnabled="true"
-        app:errorTextAppearance="@style/error_appearance"
-        app:errorTextColor="@color/white"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="password"
-            android:background="@drawable/rounded_edittext"
+            style="@style/EditTextLogin"
             android:hint="@string/login_password"
+            android:autofillHints="password"
             android:inputType="textPassword"
-            android:textSize="22sp"
+
             tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -74,31 +62,23 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilISCode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        style="@style/tilPassword"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginTop="40dp"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword"
-        app:errorEnabled="true"
-        app:errorTextAppearance="@style/error_appearance"
-        app:errorTextColor="@color/white"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/isCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="password"
-            android:background="@drawable/rounded_edittext"
+            style="@style/EditTextLogin"
             android:hint="@string/login_code"
+            android:autofillHints="password"
             android:inputType="textPassword"
-            android:textSize="22sp"
             tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -9,24 +9,19 @@
         android:id="@+id/datosTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        style="@style/TextViewInfoDatos"
         android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:text="Pito Perez Peraza - 1810465454"
-        android:textSize="16sp"
-        android:scrollHorizontally="true"
-        android:ellipsize="end"
-        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/separador"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
+        style="@style/Separador"
         android:layout_marginTop="15dp"
-        android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datosTextView" />
