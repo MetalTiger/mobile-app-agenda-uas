@@ -32,5 +32,6 @@
     <string name="Alert_btnAccept">Aceptar</string>
     <string name="Alert_btnDecline">Rechazar</string>
     <string name="loginBtn_description">Botón Iniciar Sesión</string>
+    <string name="navDrawerTitle">Bienvenido</string>
 
 </resources>
