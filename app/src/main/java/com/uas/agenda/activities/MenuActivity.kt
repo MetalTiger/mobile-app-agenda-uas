@@ -23,12 +23,13 @@ class MenuActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMenu.toolbar)
 
+        // Navigation Drawer
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
         navView.setupWithNavController(navController)
 
-
+        // AppBar
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_dates, R.id.nav_status, R.id.nav_slideshow
@@ -36,6 +37,7 @@ class MenuActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        // Bottom Navigation
         NavigationUI.setupWithNavController(binding.bottomNavView, navController)
 
         val info: Bundle? = intent.extras
