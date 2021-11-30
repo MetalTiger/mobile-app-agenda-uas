@@ -65,12 +65,15 @@ class DatesFragment : Fragment() {
                     acceptedDates.clear()
                     acceptedDates.addAll(dates.filter { date -> date.status == "accepted" })
                     //acceptedDates = dates.filter { date -> date.status == "accepted" }.toMutableList()
-                    adapter.notifyDataSetChanged()
-
                     Log.i("DatesLista", acceptedDates.toString())
 
-                } else {
-                    Toast.makeText(context, "No ha confirmado ninguna cita", Toast.LENGTH_SHORT).show()
+                    if (acceptedDates.size != 0) {
+                        adapter.notifyDataSetChanged()
+
+                    }else{
+                        Toast.makeText(context, "No ha confirmado ninguna cita", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
             }
