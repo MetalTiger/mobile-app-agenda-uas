@@ -15,7 +15,7 @@ class TimePickerFragment(val listener: (String) -> Unit): DialogFragment(), Time
         val calendar = Calendar.getInstance()
         val hora = calendar.get(Calendar.HOUR_OF_DAY)
         val minutos = calendar.get(Calendar.MINUTE)
-        val dialog = TimePickerDialog(activity as Context, R.style.TimePicker,this, hora, minutos, false)
+        val dialog = TimePickerDialog(activity as Context, R.style.TimePicker,this, hora, minutos, true)
 
         return dialog
     }

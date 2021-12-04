@@ -29,16 +29,23 @@ class ConfirmationActivity : AppCompatActivity() {
 
         binding.imageButtonConfirmar.setOnClickListener {
 
-            if (binding.editTextTime.text.isEmpty()) {
-                Toast.makeText(this, "Ingrese una hora!!!", Toast.LENGTH_LONG).show()
+            val posPuntos = binding.editTextTime.text.indexOf(":")
+
+            val horas = binding.editTextTime.text.substring(0, posPuntos).toInt()
+
+            if (binding.editTextTime.text.toString() == "__ : __" || binding.editTextTime.text.isEmpty()) {
+                Toast.makeText(this, "Ingrese una hora.", Toast.LENGTH_LONG).show()
+
+            } else if(horas !in 9..15) {
+                // Horario de 9 - 3
+                Toast.makeText(this, "El horario es de 9 a 3.", Toast.LENGTH_LONG).show()
+
 
             } else {
-                // Poner validación de horas aceptables
 
                 if (datos != null) {
-                    val id = datos.getString("id")
 
-                    // Horario de 9 - 3
+                    val id = datos.getString("id")
 
                     val info = AcceptData(id, binding.editTextTime.text.toString())
 
